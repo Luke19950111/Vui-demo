@@ -7,11 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vui</title>
     <style>
-        *{margin: 0; padding: 0; box-sizing: border-box;}
-        #app{
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #app {
             margin: 30px;
         }
-        :root{
+
+        :root {
             --button-height: 32px;
             --font-size: 14px;
             --button-bg: #fff;
@@ -23,13 +29,19 @@
         }
     </style>
     <style>
-
+        .icon{
+            width: 1em;
+            height: 1em;
+        }
     </style>
 </head>
 <body>
-    <div id="app">
-        <g-button></g-button>
-    </div>
-    <script src="./src/app.js"></script>
+<div id="app">
+    <g-button icon="setting" icon-position="right">按钮</g-button>
+    <g-button icon="setting" icon-position="left">按钮</g-button>
+    <g-button>按钮</g-button>
+</div>
+<script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1832044_9mrioxt19zo.js"></script>
 </body>
 </html>
