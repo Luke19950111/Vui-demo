@@ -3,7 +3,18 @@
         <slot></slot>
     </div>
 </template>
-<script></script>
+<script>
+    export default {
+        mounted() {
+            for (let node of this.$el.children){
+                let name = node.nodeName.toLowerCase()
+                if(name !== 'button'){
+                    console.warn(`button-group 的子元素仅支持 g-button，不应该使用 ${name}`)
+                }
+            }
+        }
+    }
+</script>
 <style lang="scss">
     .button-group {
         display: inline-flex;
