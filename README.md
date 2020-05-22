@@ -5,5 +5,5 @@
 
 使用本框架需要在css中开启 border-box
 ```css
-*{box-sizing: border-box}
+*{box-sizing: border-box;}
 ```
