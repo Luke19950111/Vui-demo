@@ -8,7 +8,11 @@
     </button>
 </template>
 <script>
+    import gIcon from './icon'
     export default {
+        components: {
+            gIcon
+        },
         // props: ['icon', 'iconPosition']
         props: {
             icon: {},
