@@ -10,6 +10,7 @@
 <script>
     import gIcon from './icon'
     export default {
+        name: 'GBUTTON',
         components: {
             gIcon
         },
@@ -30,7 +31,7 @@
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .g-button {
         font-size: var(--font-size);
         height: var(--button-height);
