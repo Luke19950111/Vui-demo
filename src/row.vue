@@ -4,7 +4,9 @@
     </div>
 </template>
 <script>
-
+    export default {
+        name: 'GROW'
+    }
 </script>
 <style lang="scss" scoped>
     .row{
