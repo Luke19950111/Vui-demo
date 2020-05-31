@@ -1,11 +1,19 @@
 <template>
-    <div class="col" :class="[`col-${span}`, offset&&`offset-${offset}`]">
-        <slot></slot>
+    <div class="col" :class="[span&&`col-${span}`, offset&&`offset-${offset}`]"
+    :style="{paddingLeft: gutter/2+'px', paddingRight: gutter/2+'px'}">
+        <div style="border: 1px solid gray; height: 100px">
+            <slot></slot>
+        </div>
     </div>
 </template>
 <script>
     export default {
         name: 'GCOL',
+        data(){
+            return{
+                gutter: 0
+            }
+        },
         props: {
             span: {
                 style: [Number, String]
@@ -19,9 +27,7 @@
 <style lang="scss" scoped>
     .col{
         height: 100px;
-        background: gray;
         width: 50%;
-        border: 1px solid red;
 
         $class-prefix: col-;
         @for $n from 1 through 24{
