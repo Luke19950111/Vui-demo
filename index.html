@@ -44,6 +44,12 @@
 <div id="app">
     <div class="box" style="border: 1px solid black">
         <g-row>
+            <g-col :span="23" :offset="1" :ipad="{span: 12, offset: 12}">
+                <div class="demo"></div>
+            </g-col>
+        </g-row>
+
+        <g-row>
             <g-col :span="24" :ipad="{span: 12}" :narrow-pc="{span: 8}" :pc="{span: 6}">
                 <div class="demo"></div>
             </g-col>
