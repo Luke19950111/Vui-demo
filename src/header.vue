@@ -3,7 +3,11 @@
         <slot></slot>
     </div>
 </template>
-
+<script>
+    export default {
+        name: 'GHEADER'
+    }
+</script>
 <style lang="scss" scoped>
     .header{
 
