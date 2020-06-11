@@ -39,7 +39,12 @@ new Vue({
             console.log(e)
         },
         showToast(){
-            this.$toast('I am toast')
+            this.$toast('I am toast', {
+                closeButton: {
+                    text: '好吧',
+                    callback(){console.log('OK，I got it.')}
+                }
+            })
         }
     }
 })
