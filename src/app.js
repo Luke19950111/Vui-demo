@@ -38,7 +38,16 @@ new Vue({
         inputChange(e){
             console.log(e)
         },
-        showToast(){
+        showToast1(){
+            this.showToast('top')
+        },
+        showToast2(){
+            this.showToast('bottom')
+        },
+        showToast3(){
+            this.showToast('middle')
+        },
+        showToast(position){
             this.$toast(`I am toast ${parseInt(Math.random()*100)} <a href="http://qq.com">qq</a>`, {
                 closeButton: {
                     text: '好吧',
@@ -46,7 +55,7 @@ new Vue({
                 },
                 enableHtml: true,
                 autoCloseDelay: 50,
-                position: 'middle'
+                position
             })
         }
     }
