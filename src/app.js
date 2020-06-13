@@ -45,7 +45,8 @@ new Vue({
                     callback(){console.log('OK，I got it.')}
                 },
                 enableHtml: true,
-                autoCloseDelay: 50
+                autoCloseDelay: 50,
+                position: 'middle'
             })
         }
     }
