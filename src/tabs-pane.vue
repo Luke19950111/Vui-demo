@@ -6,7 +6,19 @@
 
 <script>
     export default {
-        name: "TABSPANE"
+        name: "TABSPANE",
+        inject: ['eventBus'],
+        props: {
+            name: {
+                type: [String, Number],
+                required: true
+            }
+        },
+        created() {
+            this.eventBus.$on('update:selected', (name) => {
+                console.log(name)
+            })
+        }
     }
 </script>
 

@@ -7,7 +7,8 @@
 
 <script>
     export default {
-        name: "TABSHEAD"
+        name: "TABSHEAD",
+        inject: ['eventBus']
     }
 </script>
 
