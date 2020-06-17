@@ -12,6 +12,11 @@ import Sider from './sider'
 import Footer from './footer'
 import Toast from './toast'
 import Plugin from './plugin'
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsItem from './tabs-item'
+import TabsBody from './tabs-body'
+import TabsPane from './tabs-pane'
 
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
@@ -26,125 +31,21 @@ Vue.component('g-sider', Sider)
 Vue.component('g-footer', Footer)
 Vue.component('g-toast', Toast)
 Vue.use(Plugin)
+Vue.component('g-tabs', Tabs)
+Vue.component('g-tabs-head', TabsHead)
+Vue.component('g-tabs-item', TabsItem)
+Vue.component('g-tabs-body', TabsBody)
+Vue.component('g-tabs-pane', TabsPane)
+
 new Vue({
     el: '#app',
     data(){
         return{
-            loading1: false,
-            message: ''
+            selectedTab: 'basketball'
         }
     },
     methods: {
-        inputChange(e){
-            console.log(e)
-        },
-        showToast1(){
-            this.showToast('top')
-        },
-        showToast2(){
-            this.showToast('bottom')
-        },
-        showToast3(){
-            this.showToast('middle')
-        },
-        showToast(position){
-            this.$toast(`I am toast ${parseInt(Math.random()*100)} <a href="http://qq.com">qq</a>`, {
-                closeButton: {
-                    text: '好吧',
-                    callback(){console.log('OK，I got it.')}
-                },
-                enableHtml: true,
-                position
-            })
-        }
+
+
     }
 })
-
-// 单元测试
-import chai from 'chai'
-import spies from 'chai-spies'
-chai.use(spies)
-const expect = chai.expect
-
-{
-    const Constructor = Vue.extend(Button)
-    const vm = new Constructor({
-        propsData: {
-            icon: 'setting'
-        }
-    })
-    vm.$mount('#test')
-    let useElement = vm.$el.querySelector('use')
-    let href = useElement.getAttribute('xlink:href')
-    expect(href).to.eq('#i-setting')
-    vm.$el.remove()
-    vm.$destroy()
-}
-
-{
-    const Constructor = Vue.extend(Button)
-    const vm = new Constructor({
-        propsData: {
-            icon: 'setting',
-            loading: true
-        }
-    })
-    vm.$mount()
-    let useElement = vm.$el.querySelector('use')
-    let href = useElement.getAttribute('xlink:href')
-    expect(href).to.eq('#i-loading')
-    vm.$el.remove()
-    vm.$destroy()
-}
-
-{
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const Constructor = Vue.extend(Button)
-    const vm = new Constructor({
-        propsData: {
-            icon: 'setting'
-        }
-    })
-    vm.$mount(div)
-    let svg = vm.$el.querySelector('svg')
-    let {order} = window.getComputedStyle(svg)
-    expect(order).to.eq('1')
-    vm.$el.remove()
-    vm.$destroy()
-}
-{
-    const div = document.createElement('div')
-    document.body.appendChild(div)
-    const Constructor = Vue.extend(Button)
-    const vm = new Constructor({
-        propsData: {
-            icon: 'setting',
-            iconPosition: 'right'
-        }
-    })
-    vm.$mount(div)
-    let svg = vm.$el.querySelector('svg')
-    let {order} = window.getComputedStyle(svg)
-    expect(order).to.eq('2')
-    vm.$el.remove()
-    vm.$destroy()
-}
-
-{
-    //mock
-    const Constructor = Vue.extend(Button)
-    const vm = new Constructor({
-        propsData: {
-            icon: 'setting'
-        }
-    })
-    vm.$mount()
-    let spy = chai.spy(function () {})
-    vm.$on('click', spy)
-    let button = vm.$el
-    button.click()
-    expect(spy).to.have.been.called()
-    vm.$el.remove()
-    vm.$destroy()
-}
