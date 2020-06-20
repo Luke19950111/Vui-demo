@@ -11,7 +11,14 @@
 <script>
     export default {
         name: "TABSHEAD",
-        inject: ['eventBus']
+        inject: ['eventBus'],
+        mounted() {
+            this.eventBus.$on('update:selected', (name, vm) => {
+                let {width, height, top, left} = vm.$el.getBoundingClientRect()
+                this.$refs.line.style.width = `${width}px`
+                this.$refs.line.style.left = `${left}px`
+            })
+        }
     }
 </script>
 
@@ -28,8 +35,8 @@
         > .line{
             position: absolute;
             bottom: 0;
-            border-bottom: 1px solid $blue;
-            width: 100px;
+            border-bottom: 3px solid $blue;
+            transition: all 500ms;
         }
         > .action-wrapper{
             margin-left: auto;
