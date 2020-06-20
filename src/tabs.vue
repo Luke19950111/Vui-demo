@@ -34,7 +34,15 @@
 
         },
         mounted() {
-            this.eventBus.$emit('update:selected', this.selected)
+            this.$children.forEach((vm) => {
+                if(vm.$options.name === 'TABSHEAD'){
+                    vm.$children.forEach((childVm) => {
+                        if(childVm.$options.name === 'TABSITEM' && childVm.name === this.selected){
+                            this.eventBus.$emit('update:selected', this.selected, childVm)
+                        }
+                    })
+                }
+            })
         }
     }
 </script>
