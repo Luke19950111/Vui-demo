@@ -1,6 +1,6 @@
 <template>
-    <div class="popover" @click="xxx">
-        <div class="content-wrapper" v-if="visible">
+    <div class="popover" @click.stop="xxx">
+        <div class="content-wrapper" v-if="visible" @click.stop>
             <slot name="content"></slot>
         </div>
         <slot></slot>
@@ -18,6 +18,18 @@
         methods: {
             xxx() {
                 this.visible = !this.visible
+                    console.log(this.visible, '切换状态')
+                if(this.visible === true){
+                    this.$nextTick(() => {
+                        let eventHandler = ()=>{
+                            console.log('关闭')
+                            this.visible = false
+                            console.log('删除监听')
+                            document.removeEventListener('click', eventHandler)
+                        }
+                        document.addEventListener('click', eventHandler)
+                    })
+                }
             }
         }
     }
