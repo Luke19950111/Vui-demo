@@ -24,50 +24,33 @@
                 this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
                 this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
             },
-            listenToDocument() {
-                let eventHandler = (e)=>{
-                    console.log(e.target, 'ttt')
-                    console.log(this.$refs.popover.contains(e.target), 'abc')
-                    if (this.$refs.popover && (this.$refs.popover===e.target || this.$refs.popover.contains(e.target))) {
-                        return;
-                    }
-                    this.visible = false
-                    console.log('关闭2，移除监听')
-                    document.removeEventListener('click', eventHandler)
+            onClickDocument(e) {
+                if (this.$refs.popover && (this.$refs.popover===e.target || this.$refs.popover.contains(e.target))) {
+                    return;
                 }
-                console.log('监听')
-                document.addEventListener('click', eventHandler)
+                this.close()
             },
-            onShow() {
+            open() {
+                this.visible = true
                 setTimeout(() => {
                     this.positionContent()
-                    this.listenToDocument()
+                    console.log('监听')
+                    document.addEventListener('click', this.onClickDocument)
                 }, 0)
+            },
+            close() {
+                this.visible = false
+                document.removeEventListener('click', this.onClickDocument)
+                console.log('关闭，移除监听')
             },
             onClick(event) {
                 if(this.$refs.triggerWrapper.contains(event.target)){
-                    this.visible = !this.visible
                     if(this.visible === true){
-                        this.onShow()
+                        this.close()
                     }else {
-                        console.log('关闭1')
+                        this.open()
                     }
                 }
-
-                // this.visible = !this.visible
-                // if(this.visible === true){
-                //     this.$nextTick(() => {
-                //         document.body.appendChild(this.$refs.contentWrapper)
-                //         let {width, height, top, left} = this.$refs.triggerWrapper.getBoundingClientRect()
-                //         this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-                //         this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
-                //         let eventHandler = ()=>{
-                //             this.visible = false
-                //             document.removeEventListener('click', eventHandler)
-                //         }
-                //         document.addEventListener('click', eventHandler)
-                //     })
-                // }
             }
         }
     }
