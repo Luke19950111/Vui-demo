@@ -36,14 +36,14 @@
 <div id="app" style="margin-top: 100px; margin-left: 100px">
     <div>
     <g-popover>
-        <template slot="content">
-            content
+        <template slot="content" slot-scope="{close}">
+            content <g-button @click="close">关闭</g-button>
         </template>
         <g-button>button</g-button>
     </g-popover>
     <g-popover position="bottom">
         <template slot="content">
-            content
+            content <a href="https://www.qq.com" target="_blank">看新闻</a>
         </template>
         <g-button>button</g-button>
     </g-popover>
