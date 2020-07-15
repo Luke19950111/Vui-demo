@@ -34,11 +34,12 @@
 </head>
 <body>
 <div id="app" style="margin: 100px">
-    <collapse single>
-        <collapse-item title="111">内容1</collapse-item>
-        <collapse-item title="222">内容2</collapse-item>
-        <collapse-item title="333">内容3</collapse-item>
+    <collapse :selected.sync="selectedTab">
+        <collapse-item title="111" name="1">内容1</collapse-item>
+        <collapse-item title="222" name="2">内容2</collapse-item>
+        <collapse-item title="333" name="3">内容3</collapse-item>
     </collapse>
+    {{selectedTab}}
 </div>
 <script src="./src/app.js"></script>
 <!--<script src="//at.alicdn.com/t/font_1832044_x4akr1ex02t.js"></script>-->
