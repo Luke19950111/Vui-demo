@@ -50,6 +50,7 @@ module.exports = {
                         ['input.md', 'Input'],
                         ['grid.md', 'Grid'],
                         ['layout.md', 'Layout'],
+                        ['toast.md', 'Toast'],
                     ]
                 }
             ]
