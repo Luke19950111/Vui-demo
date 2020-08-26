@@ -5,18 +5,27 @@
 作者： lk
 
 ## 介绍
-学习vue过程中做的一个ui框架。
+Black-Milk UI 是一个学习导向的UI框架。
+面向源码阅读者，追求代码可读性，学习轮子制作思路。
+完成按钮、输入框、网格、布局、Toast、Tabs、Popover、手风琴等轮子。
+
+### 知识点
+使用 Travis CI 进行持续集成，了解单元测试、持续集成等工程概念；
+重构、TDD/BDD、设计模式、单向数据流等技术概念；
+深入理解 Vue 几乎所有功能。
+
+本UI框架基于 Vue2 实现。
 
 ## 开始使用
 1. 安装
     ```
-    npm i --save vui-demo
+    yarn add black-milk  //npm i black-milk
     ```
 
 2. 引入
     ```js
-    import {Btton, ButtonGroup, Icon} from 'vui-demo'
-    import 'vui-demo/dist/index.css'
+    import {Btton, ButtonGroup, Icon} from 'black-milk'
+    import 'black-milk/dist/index.css'
     
     export default {
         name: 'app',
@@ -35,21 +44,6 @@
     ```
     IE8及以上浏览器支持此样式 。
     
-    现在还需要引入以下样式（后续会改为scss变量）：
-    ```css
-    :root {
-        --button-height: 32px;
-        --font-size: 14px;
-        --button-bg: #fff;
-        --button-active-bg: #eee;
-        --border-radius: 4px;
-        --color: #333;
-        --border-color: #999;
-        --border-color-hover: #666;
-    }
-    ```
-    IE15及以上浏览器支持此样式。
-
 ## 文档
 
 ## 提问
