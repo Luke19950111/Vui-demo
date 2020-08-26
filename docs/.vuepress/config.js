@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/Vui-demo/',
     title: 'Black-Milk UI',
     description: 'Black Milk UI',
     themeConfig: {
@@ -46,6 +47,7 @@ module.exports = {
                     children: [
                         ['button.md', 'Button'],
                         ['tabs.md', 'Tabs'],
+                        ['input.md', 'Input'],
                     ]
                 }
             ]
