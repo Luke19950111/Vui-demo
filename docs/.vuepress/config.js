@@ -49,6 +49,7 @@ module.exports = {
                         ['tabs.md', 'Tabs'],
                         ['input.md', 'Input'],
                         ['grid.md', 'Grid'],
+                        ['layout.md', 'Layout'],
                     ]
                 }
             ]
