@@ -51,6 +51,7 @@ module.exports = {
                         ['grid.md', 'Grid'],
                         ['layout.md', 'Layout'],
                         ['toast.md', 'Toast'],
+                        ['popover.md', 'Popover']
                     ]
                 }
             ]
