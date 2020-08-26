@@ -20,7 +20,7 @@ module.exports = {
             // },
 
             //格式三：跳转至外部网页，需http/https前缀
-            { text: 'Github', link: 'https://github.com/Luke19950111' },
+            { text: 'Github', link: 'https://github.com/Luke19950111/Vui-demo' },
             { text: 'Blog', link: 'http://liukuai.gitee.io/blog' },
         ],
         // sidebar: [
